@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login | Verhuurder</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+	<meta charset="utf-8">
+</head>
+<body id="body_verhuurder">
+
+	<nav class="nav">
+		<img class="open_menu" src="images/icon_menu_roos.svg">
+		<img class="hide close_menu" src="images/icon_close_roos.svg">
+		<ul class="hide ul">
+			<li><a href="verhuurder.html">Overzicht</a></li>
+			<li><a href="kot_toevoegen.html">Kot toevoegen</a></li>
+			<li><a href="kot_beheren.html">Kot beheren</a></li>
+			<li><a href="#">Berichten</a></li>
+			<li><input id="logout" type="submit" value="logout"></li>
+		</ul>
+	</nav>
+
+	<section class="login">
+		<div class="loginCenter">
+			<div id="loginDiv">
+				<div class="logincontainer">
+					<h2>Login - Verhuurder</h2>
+					<div id="nieuwForm" class="hide">
+						<input id="voornaam" type="text" placeholder="voornaam">
+						<input id="achternaam" type="text" placeholder="familienaam">
+						<input id="straat" type="text" placeholder="straatnaam">
+						<input id="nummer" type="number" placeholder="huisnummer">
+						<input id="stad" type="text" placeholder="stad/gemeente">
+						<input id="gsm" type="number" placeholder="gsm number">
+					</div>
+					<input id="mail" type="email" placeholder="email" required>
+					<input id="password" type="password" placeholder="wachtwoord" required>
+					<input id="signin" type="submit" value="login">
+					<input id="nieuweGebruiker" type="submit" value="nieuwe gebruiker">
+					<input class="hide" id="signup" type="submit" value="registreren">
+					<input class="hide" id="alAccount" type="submit" value="ik heb al een account">
+
+					<p id="fouten"></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="content" class="hide">
+
+	</section>
+
+	<section>
+		<a id="back" href="index.html">Go back</a>
+	</section>
+	<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+	<script type="text/javascript" src="js/nav.js"></script>
+	<script type="text/javascript" src="js/loginVerhuurder.js"></script>
+</body>
+</html>

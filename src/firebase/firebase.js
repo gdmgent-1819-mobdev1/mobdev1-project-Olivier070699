@@ -3,11 +3,11 @@ const firebaseInstance = require('firebase');
 // Initialize Firebase
 // TODO: Replace with your project's config
 const config = {
-  apiKey: '<key>',
-  authDomain: '<projectId>.firebaseapp.com',
-  databaseURL: 'https://<projectId>.firebaseio.com',
-  projectId: '<projectId>',
-  storageBucket: '<projectId>.appspot.com',
+  apiKey: 'AIzaSyD0AOVTK7QAvti21ruehaxVEDPDUG0CXzo',
+  authDomain: 'eind-labo.firebaseapp.com',
+  databaseURL: 'https://eind-labo.firebaseio.com',
+  projectId: 'eind-labo',
+  storageBucket: 'eind-labo.appspot.com',
   messagingSenderId: '52666332181',
 };
 

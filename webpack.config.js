@@ -9,10 +9,7 @@ const semver = require('semver');
 
 module.exports = (env, argv) => {
   const dev = argv.mode === 'development';
-  if (!semver.satisfies(process.versions.node, '<=10.0.0')) {
-    console.error(`Incorrect Node version ${process.versions.node} detected, downgrade to a version lower than 10.x.x`);
-    process.exit();
-  }
+
   return ({
     entry: { main: './src/index.js' },
     output: {

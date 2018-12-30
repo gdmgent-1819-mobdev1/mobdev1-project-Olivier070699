@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>logout</title>
+    <meta http-equiv= refresh content="1;URL=huurder.html">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="body_huurder" onload="logout()">
+<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+<script type="text/javascript">
+let config = {
+    apiKey: "AIzaSyCHPuYm4r6u6Mjy5U1T4sxiRbd4G8_XjV8",
+    authDomain: "eind-opdracht-mobdev.firebaseapp.com",
+    databaseURL: "https://eind-opdracht-mobdev.firebaseio.com",
+    projectId: "eind-opdracht-mobdev",
+    storageBucket: "eind-opdracht-mobdev.appspot.com",
+    messagingSenderId: "19684165946"
+  };
+ firebase.initializeApp(config);
+
+// LOGOUT
+    function logout(e){
+        firebase.auth().signOut();
+        localStorage.removeItem('huurder_name');
+        localStorage.removeItem('favkeys');
+    }
+    
+</script>
+</body>
+</html>

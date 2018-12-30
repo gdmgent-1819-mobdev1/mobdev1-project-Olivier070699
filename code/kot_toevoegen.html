@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TOEVOEGEN</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+	<nav class="nav">
+		<img class="open_menu" src="images/icon_menu_roos.svg">
+		<img class="hide close_menu" src="images/icon_close_roos.svg">
+		<ul class="hide ul">
+			<li><a href="verhuurder.html">Overzicht</a></li>
+			<li><a href="kot_toevoegen.html">Kot toevoegen</a></li>
+			<li><a href="kot_beheren.html">Kot beheren</a></li>
+			<li><a href="#">Berichten</a></li>
+			<li><input id="logout" type="submit" value="logout"></li>
+		</ul>
+	</nav>
+
+	<section id="form">
+		<h3>Type gebouw</h3>
+		<select id="type_gebouw">
+		    <option value="kot">Kot</option>
+		    <option value="studio">Studio</option>
+		    <option value="appartement">Appartement</option>
+		    <option value="loft">Loft</option>
+	  	</select>
+
+	  	<h3>Adres</h3>
+	  	<input id="straat" type="text" placeholder="straatnaam">
+	  	<input id="huisnummer" type="number" placeholder="nummer">
+	  	<input id="stad" type="text" placeholder="gemeente">
+
+	  	<h3>Huurprijs per maand</h3>
+	  	<input id="huurprijs" type="number" placeholder="prijs per maand">
+
+	  	<h3>Waarborg</h3>
+	  	<input id="waarborg" type="number" placeholder="waarborg">
+
+	  	<h3>Oppervlakte in m²</h3>
+	  	<input id="oppervlakte" type="number" placeholder="oppervlakte">
+
+	  	<h3>Aantal verdiepingen</h3>
+	  	<select id="verdiepingen">
+	  		<option value="1">1</option>
+	  		<option value="2">2</option>
+	  		<option value="3">3</option>
+	  		<option value="4">4</option>
+	  		<option value="5+">5+</option>
+	  	</select>
+
+	  	<h3>Toilet</h3>
+	  	<select id="toilet">
+	  		<option value="Privé">Privé</option>
+	  		<option value="Gemeenschappelijk">Gemeenschappelijk</option>
+	  		<option value="Niet aanwezig">Niet aanwezig</option>
+	  	</select>
+
+	  	<h3>Sanitar</h3>
+	  	<select id="sanitair">
+	  		<option value="Douche">Douche</option>
+	  		<option value="Bad">Bad</option>
+	  		<option value="Bad & douche">Bad & douche</option>
+	  		<option value="Niet aanwezig">Niet aanwezig</option>
+	  	</select>
+
+	  	<h3>Keuken</h3>
+	  	<select id="keuken">
+	  		<option value="prive">Privé</option>
+	  		<option value="gemeenschappelijk">Gemeenschappelijk</option>
+	  	</select>
+
+	  	<h3>Bemeubeld</h3>
+	  	<select id="jameubelsnee">
+	  		<option value="Ja">Ja</option>
+	  		<option value="Nee">Nee</option>
+	  	</select>
+	  	<input id="meubilair" type="text" placeholder="aanwezig meubels">
+
+	  	<h3>Korte beschrijving</h3>
+	  	<textarea id="beschrijving" placeholder="Korte beschrijving"></textarea>
+
+	  	<input id="kot_toevoegen" type="submit" value="Toevoegen">
+	</section>
+
+	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+	<script type="text/javascript" src="js/nav.js"></script>
+	<script type="text/javascript" src="js/addkot.js"></script>
+</body>
+</html>

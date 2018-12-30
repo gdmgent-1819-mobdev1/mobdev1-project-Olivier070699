@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login | Huurder</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="body_huurder">
+		<div class="loginCenter">
+			<div id="loginDiv"> <!-- id loginDiv moet class worden -->
+				<div class="logincontainer">
+					<h2>Login - Huurder</h2>
+					<div id="nieuwForm" class="hide">
+						<input id="voornaam" type="text" placeholder="voornaam">
+						<input id="achternaam" type="text" placeholder="familienaam">
+						<input id="straat" type="text" placeholder="straatnaam">
+						<input id="nummer" type="number" placeholder="huisnummer">
+						<input id="stad" type="text" placeholder="stad/gemeente">
+						<input id="gsm" type="number" placeholder="gsm number">
+					</div>
+
+					<input id="mail" type="email" placeholder=" email" required>
+					<input id="password" type="password" placeholder="wachtwoord" required>
+					<input id="signin" type="submit" value="login">
+					<input id="nieuweGebruiker" type="submit" value="nieuwe gebruiker">
+					<input class="hide" id="signup" type="submit" value="registreren">
+					<input class="hide" id="alAccount" type="submit" value="ik heb al een account">
+					<p id="fouten"></p>
+				</div>
+			</div>
+		</div>
+
+	<a id="back" href="index.html">go back</a>
+	<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+	<script type="text/javascript" src="js/loginHuurder.js"></script>
+</body>
+</html>
