@@ -20,8 +20,8 @@ nav img{
 	background-color: white;
 	border: solid 10px white;
 	border-radius: 10px;
-	width: 150px;
-	height: 150px;
+	width: 50px;
+	height: 50px;
 	position: fixed;
 	top: 2.5%;
 	right: 2.5%;
@@ -37,6 +37,7 @@ nav{
 	justify-content: center;
 	flex-direction: column;
 	top: 0;
+	z-index: 4;
 }
 
 #navHuurder{
@@ -48,7 +49,7 @@ nav{
 }
 
 nav li{
-	margin: 100px 0;
+	margin: 30px 0;
 	list-style-type: none;
 }
 
@@ -56,7 +57,7 @@ nav a, #logout{
 	text-decoration: none;
 	color: white;
 	font-family: 'circe bold';
-	font-size: 45pt;
+	font-size: 25pt;
 	text-transform: uppercase;
 	background-color: #ff89aa;
 }
@@ -139,6 +140,7 @@ nav a:hover, nav input:hover{
 }
 
 .loginCenter{
+	text-align: center;
 	width: 100%;
 	min-height: 100vh;
 	display: flex;
@@ -149,23 +151,20 @@ nav a:hover, nav input:hover{
 }
 
 #loginDiv{
-	border: solid 10px white;
-	border-radius: 10px;
-	padding: 150px 0 75px 0;
 	width: 75%;
 	margin: 0 auto;
 }
 
 #loginDiv h2{
 	font-family: 'circe bold';
-	font-size: 45pt;
+	font-size: 25pt;
 	text-align: center;
 	text-transform: uppercase;
 	color: white;	
 }
 
 #loginDiv input{
-	width: 90%;
+	width: 45%;
 	margin: 25px 5%;
 	background-color: white;
 	height: 80px;
@@ -188,8 +187,8 @@ nav a:hover, nav input:hover{
 	color: white;
 	text-transform: uppercase;
 	font-family: "circe bold";
-	font-size: 35pt;
-	border: solid 10px white;
+	font-size: 15pt;
+	border: solid 5px white;
 	border-radius: 5px;
 	padding: 15px;
 	position: absolute;
@@ -206,11 +205,67 @@ nav a:hover, nav input:hover{
 }
 
 #content div{
-	width: 90%;
-	margin: 20px auto;
+	width: 40%;
+	margin: 30px 2.26%;
 	padding: 35px;
-	background-color: #f2f3f4;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	float: left;
 
+}
+
+.kot_overzicht button{
+	background-color: #f4bd75;
+	padding: 5px;
+	font-family: 'circe bold';
+	font-size: 12pt;
+	margin-right: 5px;
+	width: 16%;
+	color: white;
+}
+
+.kot_overzicht button:hover{
+	-webkit-box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	cursor: pointer;	
+}
+
+#typeGebouwOpen, #typeGebouwClose{
+	margin: 5% 0 0 7%;
+	background-color: #ffffff;
+	text-transform: uppercase;
+	font-family: 'circe bold';
+	font-size: 15pt;
+	padding: 5px;
+}
+
+#typeGebouwOpen:hover, #typeGebouwClose:hover, #filterGebouw:hover, #resetFilters:hover{
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+}
+
+#typeGebouwSection{
+	width: 90%;
+	margin-left: 7%;
+}
+
+#typeGebouwSection input, #typeGebouwSection select{
+	font-family: 'circe light';
+	padding: 5px;
+	margin: 5px 0;	
+}
+
+#filterGebouw, #resetFilters{
+	background-color: #fffffd;
+	text-transform: uppercase;
+	font-family: 'circe bold';
+	padding: 5px;
+	margin: 5px 0;
 }
 
 /*------------FORM TOEVOEGEN------------*/
@@ -223,7 +278,7 @@ nav a:hover, nav input:hover{
 
 #form h3{
 	font-family: 'circe bold';
-	color: #2d2d2d;
+	color: white;
 	margin: 65px 0 5px 0;
 	font-size: 25pt;
 }
@@ -252,7 +307,7 @@ nav a:hover, nav input:hover{
 }
 
 /*------------KOTEN BEHEREN && FAVORIETEN ------------*/
-#beheren, #favorieten{
+#beheren, #favorieten, #berichten{
 	text-align: center;
 	min-height: 100vh;
 	width: 90%;
@@ -263,48 +318,129 @@ nav a:hover, nav input:hover{
 	flex-direction: column;
 	top: 0;
 	font-family: 'circe light';
-	font-size: 45px;
+	font-size: 25px;
 	color: white;
 }
 
-#beheren button, #favorieten button{
+#beheren button, #favorieten button, #berichten button{
 	text-decoration: none;
 	text-transform: uppercase;
 	font-family: "circe bold";
-	font-size: 35px;
-	border: solid 10px white;
+	font-size: 12pt;
+	border: solid 5px white;
 	border-radius: 5px;
 	padding: 15px;
-	margin: 0 10px;
+	margin: 0 10px 40px 0;
 	color: white;
+}
+
+#beheren button:hover, #favorieten button:hover, #berichten button:hover{
+	cursor: pointer;
 }
 
 #beheren button{
 	background-color: #ff89aa;
 }
 
-#favorieten button{
+#favorieten button, #berichten button{
 	background-color: #f4bd75;
+}
+
+#body_verhuurder #berichten button{
+	background-color: #ff89aa;		
 }
 
 /*---------------------HUURDER---------------------*/
 /*------------DETAIL HUURDER------------*/
 #detail_blok{
 	min-height: 100vh;
-	width: 90%;
-	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	top: 0;
 	font-family: 'circe light';
-	font-size: 45px;
-	color: white;
+	font-size: 25px;
+	color: #2d2d2d;
+	width: 90%;
+	margin: 0px auto;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 12px -5px rgba(0,0,0,0.75);
 }
 
 #detail_blok ul{
 	list-style-type: none;
+}
+
+#messageBtn{
+	background-color: #f4bd75;
+	text-transform: uppercase;
+	font-family: 'circe bold';
+	font-size: 15pt;
+	color: white;
+	padding: 15px;
+	position: fixed;
+	bottom: 0;
+	right: 5%;
+	margin: 0 1% 1% 0;
+	z-index: 1;
+}
+
+#chatbox{
+	margin: 0 1% 1% 0;
+	position: fixed;
+	bottom: 0;
+	right: 5%;
+	background-color: #f4bd75;
+	padding: 15px 5px;
+	text-align: center;
+	z-index: 1;
+	width: 30%;
+}
+
+#close_chat{
+	width: 15px;
+	height: 15px;
+	background-color: white;
+	border: solid 5px white;
+	border-radius: 5px;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+#close_chat:hover{
+	cursor: pointer;
+}
+
+#chatbox h2{
+	font-family: 'circe bold';
+	font-size: 16pt;
+	color: white;
+	text-transform: uppercase;
+}
+
+#chatbox textarea{
+	height: 150px;
+	width: 90%;
+	margin: 0 auto;
+	font-family: 'circe light';
+	font-size: 14pt;
+}
+
+#sendBtn{
+	margin: 0 auto;
+	text-transform: uppercase;
+	font-family: 'circe bold';
+	color: #2d2d2d;
+	padding: 5px;
+	width: 90%;
+	background-color: white;
+	font-size: 15pt;
+    border: solid 10px white;
+    border-radius: 5px;
 }
 
 /*------------TINDER------------*/
@@ -368,4 +504,228 @@ nav a:hover, nav input:hover{
 	text-transform: uppercase;
 	font-size: 20px;
 	color: red;
+}
+
+/*------------CHAT------------*/
+.chatSection{
+	width: 90%;
+	margin: 0 auto;
+	font-family: 'circe light';
+	position: absolute;
+	left: 5%;
+	bottom: 5%;
+	width: 90%;
+}
+
+.chatSection p{
+	font-family: 'circe light';
+	font-size: 15pt;
+}
+
+.chatSection input{
+	width: 100%;
+    text-transform: uppercase;
+    font-family: "circe bold";
+    font-size: 15pt;
+    border: solid 5px white;
+    border-radius: 5px;
+    background-color: #ff89aa;
+    color: white;
+}
+
+.body_huurder .chatSection input{
+	background-color: #f4bd75;
+}
+
+.chatSection input:hover{
+	cursor: pointer;
+}
+
+.chatSection textarea{
+	width: 100%;
+	height: 75px;
+	font-family: 'circe light';
+	font-size: 15pt;
+}
+
+.messageEigen{
+	text-align: right;
+}
+
+.messageAnder{
+	text-align: left;
+}
+
+/*MOBILE*/
+@media screen and (max-width: 1024px){
+
+/*------------HUUDER // VERHUURDER ------------*/
+
+	#loginDiv{
+		border: solid 10px white;
+		border-radius: 10px;
+		padding: 150px 0 75px 0;
+		width: 75%;
+		margin: 0 auto;
+	}
+
+	#loginDiv h2{
+		font-family: 'circe bold';
+		font-size: 45pt;
+	}
+
+	#loginDiv input{
+		width: 90%;
+		margin: 25px 5%;
+		background-color: white;
+		height: 80px;
+		font-size: 20pt;
+	}
+
+/*------------BUTTONS------------*/
+	#back{
+		font-size: 35pt;
+		border: solid 10px white;
+		border-radius: 5px;
+		padding: 15px;
+	}
+	
+/*------------NAV------------*/
+	nav img{
+	width: 150px;
+	height: 150px;
+	position: fixed;
+	top: 2.5%;
+	right: 2.5%;
+	}
+
+	nav li{
+	margin: 100px 0;
+	}
+
+	nav a, #logout{
+		font-size: 45pt;
+	}
+
+/*------------OVERZICHT------------*/
+	#typeGebouwOpen, #typeGebouwClose{
+	font-size: 36pt;
+	}
+
+	#content div{
+		width: 90%;
+		margin: 20px auto;
+	}
+
+	.kot_overzicht button{
+	font-size: 36pt;
+	width: 49.371%;
+	}
+
+	#typeGebouwSection{
+		width: 95%;
+	}
+
+	#typeGebouwSection input, #typeGebouwSection select{
+	font-family: 'circe light';
+	padding: 5px;
+	margin: 5px 0;
+	width: 90%;
+	font-size: 25pt;
+	}
+
+	#typeGebouwSection select{
+		width: 90%;
+	}
+
+	#filterGebouw, #resetFilters{
+		font-size: 25pt;
+		background-color: #fffffd;
+		text-transform: uppercase;
+		font-family: 'circe bold';
+		padding: 5px;
+		width: 45.4%;
+		margin: 5px 0;
+	}
+
+	.kot_overzicht h3{
+		font-size: 35pt;
+	}
+
+	.kot_overzicht p{
+		font-size: 19pt;
+	}
+
+/*------------DETAILPAGINA------------*/
+	#detail_blok{
+		font-size: 45px;
+	}
+
+	#messageBtn{
+		font-size: 36pt;
+	}
+
+	#chatbox{
+		width: 87%;
+	}
+
+	#close_chat{
+	width: 50px;
+	height: 50px;
+}
+
+	#chatbox h2{
+		font-size: 36pt;
+	}
+
+	#chatbox textarea{
+		height: 150px;
+		font-size: 35pt;
+	}
+
+	#sendBtn{
+		font-size: 35pt;
+	}
+
+/*------------KOT BEHEREN & FAVORIETEN------------*/
+	#beheren, #favorieten, #berichten{
+		font-size: 45px;
+	}
+
+	#beheren button, #favorieten button, #berichten button{
+		font-size: 35px;
+		border: solid 10px white;
+		border-radius: 5px;
+		padding: 15px;
+	}
+
+	
+
+/*------------TINDER------------*/
+	#tinder section{
+		width: 90%;
+		margin:2.5% auto 0 auto;
+	}
+
+	#tinder h2, #tinder h3{
+		font-size: 40px;
+	}
+
+	#tinder p, #tinder li{
+		font-size: 28px;
+	}
+
+/*------------CHAT------------*/
+.chatSection p{
+	font-size: 35pt;
+}
+
+.chatSection input{
+    font-size: 35pt;
+    border: solid 10px;
+}
+
+.chatSection textarea{
+	font-size: 35pt;
+	min-height: 150px;
 }

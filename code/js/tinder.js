@@ -8,9 +8,6 @@ let config = {
 };
 firebase.initializeApp(config);
 
-// CLEAR ALL LOCALSTORAGE
-localStorage.clear();
-
 // LOAD PROFILES
 let tinderProfiles = new Array();
 function data(){

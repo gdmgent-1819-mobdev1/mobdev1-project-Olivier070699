@@ -13,12 +13,22 @@
 			<li><a href="overzicht_huurder.html">Overzicht</a></li>
 			<li><a href="favorieten.html">Favorieten</a></li>
 			<li><a href="tinder.html">Tinderspel</a></li>
-			<li><a href="#">Berichten</a></li>
-			<li><input id="logout" type="submit" value="logout"></li>
+			<li><a href="berichten.html">Berichten</a></li>
+			<li><a href="logout.html">Logout</a></li>
 		</ul>
 	</nav>
 
 	<section id="detail_blok"></section>
+
+	<section>
+		<button id="messageBtn">STUUR BERICHT</button>
+		<div id="chatbox" class="hide">
+			<img id="close_chat" src="images/icon_close_oranje.svg" alt="close">
+			<h2>Stuur een bericht</h2>
+			<textarea id="bericht" placeholder="je bericht"></textarea>
+			<button id="sendBtn">Verstuur</button>
+		</div>
+	</section>
 
 	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
 	<script type="text/javascript" src="js/detailpagina.js"></script>

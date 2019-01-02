@@ -12,13 +12,13 @@ firebase.initializeApp(config);
 
 // READ KOTEN
 function read_data(){
-  document.getElementById('content').innerHTML = "";
   let raw = firebase.database().ref("koten");
   raw.on("value", function(snapshot){
+    document.getElementById('content').innerHTML = "";
     snapshot.forEach(function (childSnapshot){
       data = childSnapshot.val();
       let inhoud = "";
-      let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+      let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button></div>";
       document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
     })
     renderButtons();
@@ -28,7 +28,7 @@ function read_data(){
 read_data();
 
 
-// RENDER KOTEN
+// RENDER Buttons
 function renderButtons() {
     let favButton = document.querySelectorAll('.fav-btn');
     let readMoreButton = document.querySelectorAll('.readmore-btn')
@@ -54,8 +54,8 @@ function addToFav(event){
 // DETAIL PAGE
 function readMore(event){
 	let key = event.currentTarget.id;
-    localStorage.setItem('detail_key', key);
-    window.location.href = 'detail_huurder.html';
+  localStorage.setItem('detail_key', key);
+  window.location.href = 'detail_huurder.html';
 }
 
 
@@ -93,52 +93,103 @@ filterGebouwBtn.addEventListener('click', function(){
       let inhoud = "";
         
         // GEBOUW FILTER
-          if (maxPrijs != "" && minPrijs != "" ) {
-            if (typeGebouw == data.gebouw && data.huurprijs >= minPrijs && data.huurprijs <= maxPrijs && data.oppervlakte >= minOppervlakte) {
+          if (typeGebouw != "Alles") {
+            if (maxPrijs != "" && minPrijs != "" ) {
+              if (typeGebouw == data.gebouw && data.huurprijs >= minPrijs && data.huurprijs <= maxPrijs && data.oppervlakte >= minOppervlakte) {
 
-              let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
-            }else{
-              post_content = "";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+
+              }
+            }else if (maxPrijs != "") {
+
+              if (typeGebouw == data.gebouw && data.huurprijs <= maxPrijs && data.oppervlakte >= minOppervlakte) {
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
 
             }
-          }else if (maxPrijs != "") {
+            }else if (minPrijs != "" ) {
+              if (typeGebouw == data.gebouw && data.huurprijs >= minPrijs && data.oppervlakte >= minOppervlakte) {
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+              }
+            }else if (maxPrijs == "" && minPrijs == "") {
+              if (typeGebouw == data.gebouw && data.oppervlakte >= minOppervlakte) {
 
-            if (typeGebouw == data.gebouw && data.huurprijs <= maxPrijs && data.oppervlakte >= minOppervlakte) {
-              let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+
+              }
             }else{
-              post_content = "";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
 
-          }
-          }else if (minPrijs != "" ) {
-            if (typeGebouw == data.gebouw && data.huurprijs >= minPrijs && data.oppervlakte >= minOppervlakte) {
-              let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
-            }else{
-              post_content = "";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
-            }
-          }else if (maxPrijs == "" && minPrijs == "") {
-            if (typeGebouw == data.gebouw && data.oppervlakte >= minOppervlakte) {
-
-              let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
-            }else{
-              post_content = "";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
-
+              if (data.gebouw == typeGebouw && data.oppervlakte >= minOppervlakte) {
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+              }
             }
           }else{
+            if (maxPrijs != "" && minPrijs != "" ) {
+              if (data.huurprijs >= minPrijs && data.huurprijs <= maxPrijs && data.oppervlakte >= minOppervlakte) {
 
-            if (data.gebouw == typeGebouw && data.oppervlakte >= minOppervlakte) {
-              let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+
+              }
+            }else if (maxPrijs != "") {
+
+              if (data.huurprijs <= maxPrijs && data.oppervlakte >= minOppervlakte) {
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+
+            }
+            }else if (minPrijs != "" ) {
+              if (data.huurprijs >= minPrijs && data.oppervlakte >= minOppervlakte) {
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+              }
+            }else if (maxPrijs == "" && minPrijs == "") {
+              if (data.oppervlakte >= minOppervlakte) {
+
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+
+              }
             }else{
-              post_content = "";
-              document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+
+              if (data.oppervlakte >= minOppervlakte) {
+                let post_content = "<div class='kot_overzicht'><h3>" + data.gebouw + " - " + data.adres + "</h3><p><b>Huur: </b>€ " + data.huurprijs + "/maand, <b>Waarborg: </b>€" + data.waarborg + ", <b>Oppervlakte: </b>" + data.oppervlakte + "m²</p><button id='" + childSnapshot.key + "' class='fav-btn'>Favoriet</button><button id='" + childSnapshot.key + "' class='readmore-btn'>Lees meer</button></div>";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);      
+              }else{
+                post_content = "";
+                document.getElementById('content').insertAdjacentHTML('afterbegin', post_content);
+              }
             }
           }
       
@@ -151,4 +202,10 @@ filterGebouwBtn.addEventListener('click', function(){
 let resetFilterBtn = document.getElementById('resetFilters');
 resetFilterBtn.addEventListener('click', function(){
   read_data();
+  document.getElementById('typeGebouw').value = "Alles";
+  document.getElementById('minPrijs').value = "";
+  document.getElementById('maxPrijs').value = "";
+  document.getElementById('minOppervlakte').value = "";
 })
+
+// FILTERS FOKKEN

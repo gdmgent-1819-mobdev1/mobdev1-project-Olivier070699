@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Beheren</title>
+	<title>Bericht</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<meta charset="utf-8">
 </head>
 <body id="body_verhuurder">
 
@@ -19,12 +18,14 @@
 		</ul>
 	</nav>
 
-	<section id="beheren"></section>
-
-	<section id="form" class="hide"></section>
-
-	<script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+	<div class="chatSection">
+		<section id="conversation"></section>
+		<section id="firstConversation"></section>
+			<textarea id="newMessage" placeholder="nieuw bericht"></textarea>
+			<input id="sendNewMessageBtn" type="submit" value="verstuur">
+	</div>
+	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+	<script type="text/javascript" src="js/readMessagesVerhuurder.js"></script>
 	<script type="text/javascript" src="js/nav.js"></script>
-	<script type="text/javascript" src="js/kot_beheren.js"></script>
 </body>
 </html>

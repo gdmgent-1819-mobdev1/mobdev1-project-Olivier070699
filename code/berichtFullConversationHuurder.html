@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Favorieten</title>
-	<meta charset="utf-8">
+	<title>Full conversation</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body class="body_huurder">
+
 	<nav class="nav" id="navHuurder">
 		<img class="open_menu" src="images/icon_menu_oranje.svg">
 		<img class="hide close_menu" src="images/icon_close_oranje.svg">
@@ -18,10 +18,15 @@
 		</ul>
 	</nav>
 
-	<section id="favorieten"></section>
+	<div class="chatSection">
+		<section id="conversation"></section>
+		<section id="firstConversation"></section>
+			<textarea id="newMessage" placeholder="nieuw bericht"></textarea>
+			<input id="sendNewMessageBtn" type="submit" value="verstuur">
+	</div>
 
 	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
-	<script type="text/javascript" src="js/fav.js"></script>
+	<script type="text/javascript" src="js/readMessagesHuurder.js"></script>
 	<script type="text/javascript" src="js/nav.js"></script>
 </body>
 </html>

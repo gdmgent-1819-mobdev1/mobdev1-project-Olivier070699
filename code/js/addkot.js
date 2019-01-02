@@ -30,25 +30,47 @@ toevoegen.addEventListener('click', function(){
   let beschrijving = document.getElementById('beschrijving').value;
   let eigenaar = localStorage.getItem('name');
 
+  if (gebouw != "" && adres != "" && huurprijs != "" && waarborg != "" && oppervlakte != "" && verdiepingen != "" && sanitair != "" && toilet != "" && keuken != "" && jameubelsnee != "") {
+      firebase.database().ref("koten").push({
+      gebouw:gebouw,
+      adres:adres,
+      huurprijs:huurprijs,
+      waarborg:waarborg,
+      oppervlakte:oppervlakte,
+      verdiepingen:verdiepingen,
+      sanitair:sanitair,
+      toilet:toilet,
+      keuken:keuken,
+      jameubelsnee:jameubelsnee,
+      meubilair:meubilair,
+      beschrijving:beschrijving,
+      eigenaar:eigenaar
 
-  firebase.database().ref("koten").push({
-
-    gebouw:gebouw,
-    adres:adres,
-    huurprijs:huurprijs,
-    waarborg:waarborg,
-    oppervlakte:oppervlakte,
-    verdiepingen:verdiepingen,
-    sanitair:sanitair,
-    toilet:toilet,
-    keuken:keuken,
-    jameubelsnee:jameubelsnee,
-    meubilair:meubilair,
-    beschrijving:beschrijving,
-    eigenaar:eigenaar
-
-  })
-  alert(gebouw + ' werd toegevoegd');
+    })
+    alert(gebouw + ' werd toegevoegd');
+    document.getElementById('type_gebouw').value = "kot";
+    document.getElementById('straat').value = "";
+    document.getElementById('huisnummer').value = "";
+    document.getElementById('stad').value = "";
+    document.getElementById('huurprijs').value = "";
+    document.getElementById('waarborg').value = "";
+    document.getElementById('oppervlakte').value = "";
+    document.getElementById('verdiepingen').value = "1";
+    document.getElementById('toilet').value = "Privé";
+    document.getElementById('sanitair').value = "Douche";
+    document.getElementById('keuken').value = "prive";
+    document.getElementById('jameubelsnee').value = "Ja";
+    document.getElementById('meubilair').value = "";
+    document.getElementById('beschrijving').value = "";
+  }else{
+    alert('Er zijn nog lege velden');
+  }
 });
-// READ KOTEN
-//document.getElementById('koten').innerHTML = "<div><h3>" + gebouw + " - " + adres + "</h3><p><b>Huur: </b>€ " + huurprijs + "/maand, <b>Waarborg: </b>€" + waarborg + "</p><ul><li><b>Oppervlakte: </b>" + oppervlakte + " m²</li><li><b>Verdiepingen: </b>" + verdiepingen + "</li><li><b>Sanitair: </b>" + sanitair + "</li><li><b>Keuken: </b>" + keuken + "</li><li><b>Bemeubeld: </b>" + meubilair + "</li></ul><h3>Korte beschrijving</h3><p>" + beschrijving + "</p></div>";
+
+// LOGOUT
+const btnLogout = document.getElementById('logout');
+btnLogout.addEventListener('click', e => {
+  firebase.auth().signOut();
+  localStorage.removeItem('name');
+  window.location.href = "verhuurder.html";
+})
