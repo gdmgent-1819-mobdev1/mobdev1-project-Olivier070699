@@ -39,7 +39,7 @@ function conversation(){
       if (huurder == data.huurder && verhuurder == data.verhuurder) {
         if(data.sendedBy == huurder){
           let post_content = "<p class='messageEigen'>" + data.bericht + "</p>";
-          document.getElementById('conversation').insertAdjacentHTML('afterbegin', post_content);
+          document.getElementById('conversation').insertAdjacentHTML('beforeend', post_content);
         }else{
           let post_content = "<p class='messageAnder'>" + data.bericht + "</p>";
           document.getElementById('conversation').insertAdjacentHTML('afterbegin', post_content);
